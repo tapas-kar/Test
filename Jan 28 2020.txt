@@ -1,0 +1,14 @@
+input_temp = int(input("Enter the temperature"))
+pain_flag = True
+if input_temp > 100:
+    bacterial_flag = input("Enter True or False")
+    if bacterial_flag == True:
+        print ("Prescription has to be prescribed")
+    else:
+        print("Bed rest and fluids is the best way to go")
+else:
+    pain_flag = input("Enter True or False")
+    if pain_flag == True:
+        print("Take Advil")
+    else:
+        print("Leave it alone !")

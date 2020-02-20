@@ -1,0 +1,96 @@
+class Rectangle(object):
+   
+    """This class encapsulates a rectangle class, which has length and width."""
+   
+    def __init__(self, length = 10, width = 5):
+        self.length = length
+        self.width = width
+   
+    def __str__(self):
+        return "Length = " + str(self.length) + " and has area = " + self.get_area()
+   
+    def get_area(self):
+        return self.length * self.width
+   
+rec1 = Rectangle ()
+rec2 = Rectangle (100, 50)
+print(rec1.get_area())
+print (rec2.get_area())
+
+class Employee():
+    """ This class represents an employee with three instance variables: name, age, and title
+    This class also has a class variable total which keeps count of employees"""
+   
+    total = 0
+   
+    def __init__(self, name, age, title, salary):
+        self.name = name
+        self.age = age
+        self.title = title
+        self.__salary = salary
+        Employee.total += 1
+       
+    def __str__(self):
+        temp = "Employee name = " + self.name + ", age = " + str(self.age) + ", title = " + self.title + "years to retire = "
+   
+    def get_years_to_retirement(self):
+        return (65 - self.age)
+   
+    def __get_salary(self):
+        return self.__salary
+   
+    def get_salary(self):
+        return self.__get_salary
+   
+    @staticmethod    #decorator
+    def get_total():
+        return Employee.total
+emp1 = Employee("John", 25, "Programmer", 50000)
+emp2 = Employee ("Peter", 40, "Manager", 100000)
+print(emp1.get_salary)
+
+import random
+alpha = "ABCDEFGHJIKLMNOPQRSTUVWXYZ"
+alpha_upper = list(alpha)
+alpha_lower = list(alpha.lower())
+digits = list("0123456789")
+symbols = list("~!@#$%^&*()_+{}[]|;:,.")
+def get_alpha_upper (num):
+    output = []
+    i = 0
+    while i < num:
+        j = random.randint(0, len(alpha_upper) - 1)
+        output.append(alpha_upper[j])
+        i += 1
+    return output
+def get_alpha_lower (num):
+    output = []
+    i = 0
+    while i < num:
+        j = random.randint(0, len(alpha_lower) - 1)
+        output.append(alpha_lower[j])
+        i += 1
+    return output
+def get_digits (num):
+    output = []
+    i = 0
+    while i < num:
+        j = random.randint(0, len(digits) - 1)
+        output.append(digits[j])
+        i += 1
+    return output
+def get_symbols (num):
+    output = []
+    i = 0
+    while i < num:
+        j = random.randint(0, len(symbols) - 1)
+        output.append(symbols[j])
+        i += 1
+    return output
+password = []
+password.extend(get_data(alpha_upper, 2))
+password.extend(get_data(alpha_lower, 3))
+password.extend(get_data(digits, 4))
+password.extend(get_data(symbols, 2))
+random.shuffle(password)
+"".join(password)
